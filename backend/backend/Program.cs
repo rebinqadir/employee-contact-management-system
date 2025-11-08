@@ -4,6 +4,23 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// 1 Define a CORS policy name
+const string AllowDevClient = "AllowDevClient";
+
+// 2 Register CORS BEFORE Build()
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: AllowDevClient, policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5173") // Vite React app
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+        // Expose this custom header so the browser lets JS read it
+         .WithExposedHeaders("X-Total-Count");
+    });
+});
+
 // Add services to the container.
 
 // Registering DataContext
@@ -30,6 +47,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//3 Enable CORS Before Authorization & MapControllers
+app.UseCors(AllowDevClient);
 
 app.UseHttpsRedirection();
 
