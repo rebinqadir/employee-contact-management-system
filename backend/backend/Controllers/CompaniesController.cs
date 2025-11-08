@@ -15,6 +15,14 @@ namespace backend.Controllers
             _companyService = companyService;
         }
 
+
+        /// <summary>
+        /// Retrieves all companies
+        /// </summary>
+        /// <returns>Returns a list of companies.</returns>
+        /// <response code="200">Companies returned successfully.</response>
+        /// <response code="400">No companies were found.</response>
+        /// <response code="500">An unexpected error occurred.</response>
         [HttpGet]
         public async Task<IActionResult> GetAllCompaniesAsync()
         {
