@@ -1,0 +1,43 @@
+# --- .NET / ASP.NET Core ---
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.cache
+*.ide
+*.ncrunch*
+_ReSharper*/
+*.DotSettings.user
+*.vscode/*     # if you prefer not to share VS Code workspace settings
+
+# Visual Studio
+.vs/
+
+# Build and publish outputs
+artifacts/
+publish/
+*.Publish.xml
+
+# Logs and temp
+*.log
+Logs/
+temp/
+
+# Ignore HTTP test files
+*.http
+
+# ASP.NET Core configs
+# Keep appsettings.json (no secrets) – IGNORE dev/machine overrides
+appsettings.Development.json
+
+# EF Core
+# Keep migrations in source control
+# Migrations/*   <-- DO NOT ignore migrations if you want teammates in sync
+
+# Rider / JetBrains
+.idea/
+
+# Node stuff accidentally added under backend (e.g., swagger-ui builds)
+node_modules/
