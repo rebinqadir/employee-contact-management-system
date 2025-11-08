@@ -21,6 +21,9 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Simple health-check endpoint to verify API availability
+app.MapGet("/health", () => Results.Ok("Healthy"));
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
