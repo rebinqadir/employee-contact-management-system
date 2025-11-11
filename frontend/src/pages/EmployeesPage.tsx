@@ -26,7 +26,7 @@ export default function EmployeesPage() {
 
         {/* Header + Add */}
         <div className="d-flex justify-content-between align-items-center mb-4">
-          <h2>Employees</h2>
+          <h2>Employee Contact Management Systemn</h2>
           <Link className="btn btn-primary" to="/employees/add">
             Add Employee
           </Link>
