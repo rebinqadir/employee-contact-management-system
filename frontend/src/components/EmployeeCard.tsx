@@ -4,12 +4,17 @@ import { useEmployeeContext } from "../contexts/EmployeeContext";
 import { Link } from "react-router-dom";
 import { notifySuccess } from "./Toast";
 
+import { useGravatar } from "../hooks/useGravatar";         // IMPORTg
+
+
 interface Props {
   employee: Employee;
 }
 
 export default function EmployeeCard({ employee }: Props) {
   const { deleteEmployee } = useEmployeeContext();
+
+  const avatarUrl = useGravatar(employee.email);              // CALL
 
   const handleDelete = async () => {
     if (confirm("Are you sure?")) {
@@ -20,6 +25,17 @@ export default function EmployeeCard({ employee }: Props) {
 
   return (
     <Card className="p-3 h-100 shadow-sm rounded-3">
+
+      {/* DISPLAY AVATAR */}
+      <img
+        src={avatarUrl}
+        alt={employee.name}
+        className="rounded-circle mb-3"
+        width={80}
+        height={80}
+        style={{ objectFit: "cover" }}
+      />
+
       <h5 className="mb-1">{employee.name}</h5>
       <p className="mb-1">{employee.email}</p>
       {employee.phone && <p className="mb-1">{employee.phone}</p>}
