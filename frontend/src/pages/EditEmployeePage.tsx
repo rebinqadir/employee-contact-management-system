@@ -15,8 +15,15 @@ export default function EditEmployeePage() {
 
   useEffect(() => {
     if (id) {
-      getEmployee(+id).then((res) => setEmp(res.data));
-    }
+      getEmployee(+id).then((res) => {
+      const raw = res.data as any;
+
+      setEmp({
+        ...raw,
+        companyId: raw.companyId ?? raw.companyID,   // normalize casing
+      });
+    });
+  }
   }, [id]);
 
   async function handleUpdate(data: any) {
