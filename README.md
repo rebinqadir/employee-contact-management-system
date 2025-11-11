@@ -41,6 +41,9 @@ A full-stack application built with:
     │   └── index.css
     └── ...
 
+```
+
+---
 
 ## Features
 
@@ -73,24 +76,28 @@ A full-stack application built with:
 7) Press **F5** to start the API
 
 ### Base URL
+```
 https://localhost:7204
+```
 
 ---
 
-### API Endpoints
+## API Endpoints
 
-Employees:
+### Employees:
 - GET /api/employees
 - GET /api/employees/{id}
 - POST /api/employees
 - PUT /api/employees/{id}
 - DELETE /api/employees/{id}
 
-Companies:
+### Companies:
 - GET /api/companies
 
-Health:
-- GET /health
+### Health:
+```
+- GET /health → Healthy
+```
 
 ## Frontend — React + TypeScript + Vite
 
