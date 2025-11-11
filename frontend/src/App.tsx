@@ -6,12 +6,22 @@ import Toast from "./components/Toast";
 import { CompanyProvider } from "./contexts/CompanyContext";
 import { EmployeeProvider } from "./contexts/EmployeeContext";
 
+import ApiHealthBanner from "./components/ApiHealthBanner";
+import { useApiHealth } from "./hooks/useApiHealth";
+
+
 export default function App() {
+
+  const { isApiUp } = useApiHealth();
+
   return (
     <BrowserRouter>
       <CompanyProvider>
         <EmployeeProvider>
           <Toast />
+
+          {/* API availability banner */}
+          <ApiHealthBanner isApiUp={isApiUp} />
 
           <Routes>
             <Route path="/" element={<EmployeesPage />} />
